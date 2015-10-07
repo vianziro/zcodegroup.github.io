@@ -1,0 +1,37 @@
+Soal CPNS
+	Soal CPNS adalah kumpulan soal CPNS berbentuk pertanyaan pilihan ganda. Aplikasi ini menampilkan soal dalam mode try out (pengerjaan dalam durasi tertentu, menyerupai kondisi ujian sungguhan). Komposisi soal, skor, dan ambang batas sesuai dengan Permen PAN RB no 35/2013.
+
+Even Odd Game
+	Even Odd is kind of math games designed to challenge you to find a unique number among groups of numbers. You have to find the even number between groups of odd numbers or you have to find the odd number between groups of even numbers. You only have 3 minutes to play this game.
+
+
+Distributor Support System (Unicharm)
+	Desktop application using WPF. It contain applications for distributor and head office. 
+	Distributors application has feature, creating purchase order (PO), maintain inventory, financial processing, and sales processing, it is common feature like Point of Sales. Special feature on distributor application is Discount Rule Engine. This engine will filter transaction based on discount rule that has been specified before.
+	Head office application has feature, smart system to make forecast order, it make recommendation amount of inventory that should be order by distributor.  Retrieve and processing order from distributor. Making delivery plan based on distributor order and then communicate with other application to packing and sending item.
+	Tech: .Net, C#, PostgreSQL, Entity Framework, WPF, XAML, Modern UI
+
+
+
+Kinanti
+	
+
+
+Echo Monitoring System (Telkomsel)
+	Checking network element through webservice and database server. Result of this monitoring will process in webapp to generate graphic and report.
+	Using enterprise technology like, Apache Camel, Apache Maven, Oracle DB, ZKoss framework, Spring, Ibatis.
+
+
+
+Ticketing System (Transnusa Airlines)
+	Information system that will facilitate the process of reservations airfare. Customer can make reservations directly at the system without going through an agent. Business to Customer Transnusa Airlines is expected to assist customers in the purchase of tickets.
+	Tech: .Net, C#, SQL Server, ASP MVC, Entity Framework, Bootstrap Twitter, Javascript
+	Misc: Integrated with Doku Payment	
+
+Departure Control System (Transnusa Airlines)
+	Application for manage passenger departure. Such as Check in process, Baggage Process, Exceed Baggage Ticket Process, and Manifest Report . It is develop by .Net technology, with C# language, SQL server Database, and Dapper object relational mapping technology.
+
+Inventory Management System (Medco Energy)
+	Record the movement of goods. In this application, I make the current flow licensing (Business Process Management) using the K2 Blackpearl. In addition, I also make an application scanner to process inventory and matching with the requested items. Scanner application was made on windows mobile operating system.
+
+Baketball Gamerace (ASEAN University Games)

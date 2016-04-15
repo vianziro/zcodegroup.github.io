@@ -1,0 +1,59 @@
+<center>
+	<h3>Pengaturan Grafik</h3>
+</center>
+<div style="margin-top:20px">
+	<div class="row">
+		<div class="col-md-6">
+			<form class="form-horizontal">
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Grafik</label>
+					<div class="col-sm-9">
+						<select class="form-control" ng-options="c.id as c.label for c in ctype" ng-model="m.id" ng-change="change()"></select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Judul</label>
+					<div class="col-sm-9">
+						<input type="text" class="form-control" placeholder="Judul" ng-model="m.title">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Jenis Grafik</label>
+					<div class="col-sm-9">
+						<select class="form-control" ng-change="chType()" ng-model="m.type" disabled>
+							<option></option>
+							<option value="pie">Pie Chart</option>
+							<option value="bar">Bar Chart</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Field</label>
+					<div class="col-sm-9">
+						<select class="form-control" ng-options="f.id as f.label for f in fields" ng-model="m.field"></select>
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button class="btn btn-sm btn-primary" ng-click="save()">Simpan</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		<div class="col-md-6">
+			<table class="table">
+				<tr>
+					<th>Grafik</th>
+					<th>Judul</th>
+					<th>Jenis</th>
+					<th>Field</th>
+				</tr>
+				<tr ng-repeat="c in cs">
+					<td>{{c.id}}</td>
+					<td>{{c.title}}</td>
+					<td>{{c.type}}</td>
+					<td>{{c.field}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>

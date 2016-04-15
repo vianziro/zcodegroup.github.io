@@ -1,0 +1,23 @@
+<br>
+<div class="col-md-4 col-md-offset-4">
+	<div class="panel panel-success">
+      	<div class="panel-heading">
+        	<center>
+        		<h4 class="panel-title"><strong>Aktivasi User</strong></h4>
+        	</center>
+      	</div>
+      	<div class="panel-body">
+      		<p><small>Kami telah mengirimkan kode aktivasi ke email Anda ({{email}}) silahkan cek.</small></p>
+			<input type="email" class="form-control" ng-model="form.email" placeholder="Email" name"activationEmail">
+			<br>
+			<input type="password" class="form-control" ng-model="form.challengecode" placeholder="Kode Aktivasi" name="activationCode">
+			<br/>
+			<div>
+				<button class="btn btn-primary btn-block" ng-click="activation()">Aktivasi</button>
+				<button class="btn btn-warning btn-block" ui-sref="home">Cancel</button>
+				<a href="#/login" class=""><small>Login</small></a>
+				<a href="#/register" class="pull-right"><small>Tidak punya akun</small></a>
+			</div>
+      	</div>
+    </div>
+</div>

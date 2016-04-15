@@ -1,0 +1,64 @@
+<div ng-if="ncustomer > 0" ng-controller="CustomerCtrl as ctrl">
+    <center>
+        <h4>Daftar Pelanggan <small>({{(count | number)}} / {{(ncustomer | number)}})</small></h4>
+    </center>
+    <hr/>
+    <button ui-sref="customerform" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-user"></i> Tambah Data</button>
+    <button ui-sref="customersearch" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-search"></i> Cari Data</button>
+    <button ui-sref="customergroup" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-user"></i> Pengelompokan</button>
+    <button class="btn btn-sm btn-primary" ng-csv="export()" lazy-load="true" csv-header="headers" filename="customer-export.csv"><i class="glyphicon glyphicon-upload"></i> Export Data</button>
+    <button ui-sref="customerimport" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-download"></i> Import Data</button>
+    <button ng-click="delete()" class="btn btn-sm btn-danger" ng-if="ctrl.anySelected"><i class="glyphicon glyphicon-trash"></i> Hapus</button>
+    <div class="pull-right">
+        <input type="search" placeholder="cari{{primaryField}}" ng-model="ctrl.query" />
+        <button ng-click="ctrl.search()" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-search"></i> Cari</button>
+        <button ui-sref="field" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-cog"></i> Pengaturan</button>
+    </div>
+    <!-- <span class="pull-right">Total pelanggan: {{count}}</span> -->
+    <br/>
+	<!--<ztable config="configTable"></ztable>-->
+    <table st-pipe="callServer" st-table="displayed" class="table table-hover highlight table-striped table-condensed">
+        <thead>
+            <tr>
+                <td>
+                    <input type="checkbox" ng-model="masterCheck" ng-change="toggleAll()" />
+                </td>
+				<!--<th ng-repeat="(key, value) in displayed[0]" ng-if="onTable(key)">{{translate(key)}}</th>-->
+                <th ng-repeat="f in fields" ng-if="f.onTable">{{f.label}}</th>
+            </tr>
+        </thead>
+        <tbody ng-show="!isLoading">
+            <tr ng-repeat="c in displayed">
+                <td>
+                    <input type="checkbox" ng-model="c.isActive" ng-change="checkSelection()" />
+                </td>
+                <td ng-repeat="(key, value) in c" ng-if="onTable(key)" ng-click="detail(c.id)">
+                    {{normalize(key, value)}}
+                </td>
+            </tr>
+        </tbody>
+        <tbody ng-show="isLoading">
+            <tr>
+                <td colspan="4" class="text-center">Loading ... </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+				<td class="text-center" st-pagination="" st-items-by-page="10" colspan="{{colspan}}"></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<div ng-if="ncustomer === 0" style="margin-top: 100px">
+    <center>
+        <p>
+            <small>Belum ada data pelanggan</small>
+        </p>
+        <button class="btn btn-lg btn-primary" ui-sref="customerform">
+            <i class="glyphicon glyphicon-user"></i> Tambah Data Pelanggan
+        </button>
+        <button class="btn btn-lg btn-primary" ui-sref="customerimport">
+            <i class="glyphicon glyphicon-download"></i> Import Data Pelanggan
+        </button>
+    </center>
+</div>

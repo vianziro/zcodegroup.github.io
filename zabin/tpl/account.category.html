@@ -1,0 +1,29 @@
+<br>
+<div class="col-md-4 col-md-offset-4">
+	<div class="panel panel-success">
+      	<div class="panel-heading">
+        	<h4 class="panel-title"><strong>Membuat Kategori Baru</strong></h4>
+      	</div>
+      	<div class="panel-body">
+			<input type="text" class="form-control" ng-model="category.name" placeholder="Katagori Akutansi">
+			<br/>
+			<div class="row">
+				<div class="col-md-4">
+					<button class="btn btn-primary btn-block" ng-click="save()">Simpan</button>
+				</div>
+				<div class="col-md-4">
+					<button class="btn btn-danger btn-block" ng-click="delete()">Delete</button>
+				</div>
+				<div class="col-md-4">
+					<button class="btn btn-warning btn-block" ng-click="category = {}">Cancel</button>
+				</div>	
+			</div>
+			<br>
+			<table class="table table-striped table-hover">
+			    <tr ng-repeat="c in categories" ng-click="select(c)">
+			        <td>{{c.name}}</td>
+			    </tr>
+			</table>
+      	</div>
+    </div>
+</div>

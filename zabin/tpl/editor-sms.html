@@ -1,0 +1,21 @@
+<div>
+    <center>
+        <h3>SMS</h3>
+    </center>
+    <hr/>
+    <form class="form-horizontal">
+        <div class="form-group" ng-repeat="f in ofield.fields">
+            <label for="{{f.id}}" class="col-sm-3 control-label">{{f.label}}<span ng-if="f.required">*</span></label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" ng-model="customer[f.id]" id="{{f.id}}" placeholder="{{f.description}}" ng-if="f.type === 'text'">
+                <input type="date" class="form-control" ng-model="customer[f.id]" id="{{f.id}}" placeholder="{{f.description}}" ng-if="f.type === 'date'">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button class="btn btn-sm btn-primary" ng-click="save()">Simpan</button>
+                <button class="btn btn-sm btn-warning" ui-sref="customer">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>

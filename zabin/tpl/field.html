@@ -1,0 +1,90 @@
+<center>
+	<h3>Pengaturan Entitas</h3>
+</center>
+<hr/>
+<div class="row">
+	<div class="col-md-6">
+		<table class="table">
+			<tr>
+				<th>Key</th>
+				<th>Label</th>
+				<th>Tipe</th>
+				<th>Mandatory</th>
+				<th>On Table</th>
+				<!--<th>On Search</th>-->
+			</tr>
+			<tr ng-repeat="f in fields" ng-click="selectField(f, $index)">
+				<td>
+					<input type="radio" ng-model="ofield.primary" name="primary" value="{{f.id}}">
+				</td>
+				<td>{{f.label}}</td>
+				<td>{{f.type}}</td>
+				<td>{{f.required}}</td>
+				<td>{{f.onTable}}</td>
+				<!--<td>{{f.onSearch}}</td>-->
+			</tr>
+		</table>
+	</div>
+	<div class="col-md-6">
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Label</label>
+				<div class="col-sm-9">
+					<input type="text" ng-model="cfield.label" class="form-control" placeholder="Label">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Tipe</label>
+				<div class="col-sm-9">
+					<select class="form-control" ng-model="cfield.type" ng-change="selectType()">
+						<option value="text">Text</option>
+						<option value="date">Date</option>
+						<option value="option">Pilihan</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group" ng-if="cfield.type === 'option'">
+				<label class="col-sm-3 control-label">Nilai Pilihan</label>
+				<div class="col-sm-9">
+					<div ng-repeat="v in cfield.optionValues">
+						<a href="" ng-click="deleteValue(v.value)">Hapus</a>
+						<input type="text" ng-model="v.value" class="form-control" placeholder="Opsi">
+					</div>
+					</br>
+					<a href="" ng-click="addValue()">Tambah</a>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">Mandatory</label>
+				<div class="col-sm-9">
+					<input type="checkbox" ng-model="cfield.required">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label">On Table</label>
+				<div class="col-sm-9">
+					<input type="checkbox" ng-model="cfield.onTable">
+				</div>
+			</div>
+			<!--
+			<div class="form-group">
+				<label class="col-sm-3 control-label">On Search</label>
+				<div class="col-sm-9">
+					<input type="checkbox" ng-model="cfield.onSearch">
+				</div>
+			</div>
+			-->
+			<div class="form-group">
+				<div class="col-sm-offset-2 col-sm-10">
+					<button class="btn btn-sm btn-primary" ng-click="save()">Simpan</button>
+					<button class="btn btn-sm btn-danger" ng-if="editMode" ng-click="delete()">Delete</button>
+					<button class="btn btn-sm btn-warning" ng-click="clear()">Cancel</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<hr/>
+<center>
+	<button class="btn btn-primary" ng-click="publish()">Simpan ke database</button>
+</center>

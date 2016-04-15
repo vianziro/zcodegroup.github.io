@@ -1,0 +1,91 @@
+<div class="row">
+    <div class="col-md-4">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Sektor</label>
+                <div class="col-sm-10">
+                    <select ng-model="workspaceId" class="form-control" ng-options="w.id as w.name for w in workspaces" ng-change="reload()">
+                        <option value="">-- Pilih Sektor --</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Tanggal</label>
+                <div class="col-sm-10">
+                    <input type="date" class="form-control" ng-model="form.date">
+                    <br>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Nominal</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" ng-model="form.amount" placeholder="Jumlah uang">
+                    <br>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Debit</label>
+                <div class="col-sm-10">
+                    <select ng-model="form.debitAccount" class="form-control" ng-options="d.id as d.name for d in debits">
+                        <option value="">-- Pilih Akun Debit --</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Kredit</label>
+                <div class="col-sm-10">
+                    <select ng-model="form.creditAccount" class="form-control" ng-options="c.id as c.name for c in credits">
+                        <option value="">-- Pilih Akun Kredit --</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Keterangan</label>
+                <div class="col-sm-10">
+                    <textarea type="text" ng-model="form.note" class="form-control" placeholder="Keterangan"></textarea>
+                    <br>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn-danger pull-right" ng-click="delete()" ng-if="form.id">Delete</button>
+                    <button class="btn pull-right" ng-click="form = {}">Cancel</button>
+                    <button class="btn btn-primary pull-right" ng-click="save()">Simpan</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-8" ng-if="journals.length > 0">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Tanggal</th>
+                    <th colspan="2">Akun</th>
+                    <th>Ref</th>
+                    <th>Debit</th>
+                    <th>Kredit</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="j in journals" ng-click="select(j)">
+                <tr>
+                    <td rowspan="3">{{j.date | date:"dd MMM yyyy"}}</td>
+                    <td>{{j.debit.name}}</td>
+                    <td></td>
+                    <td>{{j.debit.number}}</td>
+                    <td>{{j.amount | number}}</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>{{j.credit.name}}</td>
+                    <td>{{j.credit.number}}</td>
+                    <td></td>
+                    <td>{{j.amount | number}}</td>
+                </tr>
+                <tr>
+                    <td colspan="5"><small><strong>Ket: </strong>{{j.note}}</small></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

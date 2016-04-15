@@ -1,0 +1,66 @@
+<br>
+<div class="row">
+    <div class="col-md-4">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h4 class="panel-title"><strong>Membuat User Baru</strong></h4>
+            </div>
+            <div class="panel-body">
+                <input type="text" class="form-control" ng-model="user.name" placeholder="Full Name">
+                <br>
+                <input type="text" class="form-control" ng-model="user.username" placeholder="Username">
+                <br>
+                <input type="text" class="form-control" ng-model="user.email" placeholder="Email">
+                <br>
+                <input type="password" class="form-control" ng-model="user.password" placeholder="Password" ng-if="!user.id">
+                <br/> Jenis User
+                <input type="radio" ng-model="user.type" ng-value="1" name="usertype"> User Biasa
+                <input type="radio" ng-model="user.type" ng-value="0" name="usertype"> Admin
+                <br/>
+                <br/> Status User
+                <input type="radio" ng-model="user.status" ng-value="1" name="userstatus"> Active
+                <input type="radio" ng-model="user.status" ng-value="2" name="userstatus"> Disabled
+                <br/>
+                <br/> Sektor
+                <div ng-repeat="w in workspaces">
+                    <input type="checkbox" ng-model="user.temp[w.id]" name="workspace" id="{{w.id}}" /> {{w.name}}
+                </div>
+                <br/>
+                <br/>
+                <div class="row">
+                    <div class="col-md-3">
+                        <button class="btn btn-primary btn-block" ng-click="save()">Simpan</button>
+                    </div>
+                    <div class="col-md-3" ng-if="user.id">
+                        <button class="btn btn-success btn-block" ng-click="changepass()">Ubah Password</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-danger btn-block" ng-click="delete()">Delete</button>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-warning btn-block" ng-click="user = {}">Cancel</button>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <table class="table table-striped table-hover">
+            <tr>
+                <th>Full Name</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Roles</th>
+            </tr>
+            <tr ng-repeat="c in users" ng-click="select(c)">
+                <td>{{c.name}}</td>
+                <td>{{c.username}}</td>
+                <td>{{c.email}}</td>
+                <td>{{def('status', c.status)}}</td>
+                <td>{{def('role', c.type)}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

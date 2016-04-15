@@ -1,0 +1,52 @@
+<div class="col-md-5">
+	<h2>Buku Besar</h2>
+	<div class="row">
+		<div class="col-md-6">
+			<label class="form-">Pilih Sektor</label>
+			<select ng-model="workspaceId" class="form-control" ng-options="w.id as w.name for w in workspaces" ng-change="getLedger()">
+				<option value="">-- Pilih Sektor --</option>
+			</select>
+		</div>
+		<div class="col-md-6">
+			<label class="form-">Pilih Bulan</label>
+			<input type="month" class="form-control" ng-model="month" ng-change="getLedger()">
+		</div>
+	</div>
+</div>
+<br>
+<div class="col-md-12" ng-repeat="a in accounts">
+	<h3 ng-if="a.journals && a.journals.length > 0" class="example-title">{{a.name}}</h3>
+	<span ng-if="a.journals.length == 0 && a.journals.length > 0">
+		<small>Tidak ada transaksi</small>
+	</span>
+	<table class="table" ng-if="a.journals.length > 0">
+		<thead>
+			<tr>
+				<th>Tanggal</th>
+				<th>Akun</th>
+				<th>Debit</th>
+				<th>Kredit</th>
+				<th>Saldo Debet</th>
+				<th>Saldo Kredit</th>
+			</tr>
+		</thead>
+		<tbody ng-repeat="j in a.journals">
+			<tr ng-if="j.debit">
+				<td rowspan="3">{{j.date | date:"dd MMM yyyy"}}</td>
+				<td>{{j.debit.name}}</td>
+				<td>{{j.amount | number}}</td>
+				<td></td>
+				<td>{{j.debitSaldo | number}}</td>
+				<td>{{abs(j.creditSaldo) | number}}</td>
+			</tr>
+			<tr ng-if="j.credit">
+				<td rowspan="3">{{j.date | date:"dd MMM yyyy"}}</td>
+				<td>{{j.credit.name}}</td>
+				<td></td>
+				<td>{{j.amount | number}}</td>
+				<td>{{j.debitSaldo | number}}</td>
+				<td>{{abs(j.creditSaldo) | number}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>

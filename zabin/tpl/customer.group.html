@@ -1,0 +1,91 @@
+<div ng-controller="CustomerGroupCtrl as ctrl">
+    <div ng-if="ngroup > 0">
+        <center>
+            <h4>Pengelompokan Pelanggan</h4>
+        </center>
+        <hr/>
+        <select ng-options="g as g.name for g in groups" ng-model="ctrl.group" ng-change="selectGroup()"></select>
+        <button ng-click="addGroup()" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-user"></i> Tambah Kelompok</button>
+        <button ng-click="editGroup()" class="btn btn-sm btn-primary" ng-if="ctrl.group"><i class="glyphicon glyphicon-search"></i> Ubah Kelompok</button>
+        <button ng-click="deleteGroup()" class="btn btn-sm btn-danger" ng-if="ctrl.group"><i class="glyphicon glyphicon-trash"></i> Hapus Kelompok</button>
+        <br/>
+        <div class="container">
+            <br />
+            <div class="row">
+                <div class="dual-list list-left col-md-5">
+                    <div class="well text-right">
+                        <div class="row">
+                            <center>
+                                <h4>{{ctrl.group.name || "My Group"}}</h4>
+                            </center>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <span class="input-group-addon glyphicon glyphicon-search"></span>
+                                    <input type="text" name="SearchDualList" class="form-control" placeholder="search" ng-model="q1" />
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="btn-group">
+                                    <a class="btn btn-default selector" title="select all" ng-click="toggleGroup()"><i class="glyphicon" ng-class="{true:'glyphicon-check', false:'glyphicon-unchecked'}[ctrl.groupSelected]"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="c in (filteredCustomersGroup = (ctrl.customersgroup | filter:q1))" ng-click="selectRow(c)" ng-class="{active: c.isActive}">{{c[ctrl.primary]}}</li>
+                        </ul>
+                        <center ng-if="ctrl.customersgroup.length === 0">
+                            <i>Tidak ada data pelanggan</i>
+                        </center>
+                    </div>
+                </div>
+                <div class="list-arrows col-md-1 text-center">
+                    <button class="btn btn-default btn-sm move-left" ng-click="addToGroup()">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </button>
+                    <button class="btn btn-default btn-sm move-right" ng-click="removeFromGroup()">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </button>
+                </div>
+                <div class="dual-list list-right col-md-5">
+                    <div class="well">
+                        <div class="row">
+                            <center>
+                                <h4>Pelanggan</h4>
+                            </center>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="btn-group">
+                                    <a class="btn btn-default selector" title="select all" ng-click="toggleCustomer()"><i class="glyphicon" ng-class="{true:'glyphicon-check', false:'glyphicon-unchecked'}[ctrl.customerSelected]"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="input-group">
+                                    <input type="text" name="SearchDualList" class="form-control" placeholder="search" ng-model="q2" />
+                                    <span class="input-group-addon glyphicon glyphicon-search"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item" ng-repeat="c in (filteredCustomers = (customers | filter:q2))" ng-click="selectRow(c)" ng-class="{active: c.isActive}">{{c[ctrl.primary]}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="ngroup === 0" style="margin-top: 100px">
+        <center>
+            <p>
+                <small>Belum ada data Kelompok Pelanggan</small>
+            </p>
+            <button class="btn btn-lg btn-primary" ng-click="addGroup()">
+                <i class="glyphicon glyphicon-user"></i> Tambah Data Kelompok Pelanggan
+            </button>
+        </center>
+    </div>
+	
+</div>
+

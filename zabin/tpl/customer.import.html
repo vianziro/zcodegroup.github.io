@@ -1,0 +1,57 @@
+<center>
+    <h3>Import Data Pelanggan</h3>
+</center>
+<hr/>
+<div class="bs-callout bs-callout-info col-md-3">
+    <button class="btn btn-primary" ng-csv="csvTemplate" lazy-load="true" filename="customer-template.csv" csv-header="csvHeader">
+        <i class="glyphicon glyphicon-download"></i> Download Template
+    </button>
+    <br/>
+    <br/>
+    <small>
+		<p><strong>Cara Import Data Pelanggan</strong></p>
+		<p>
+			<ol>
+				<li>Download template csv</li>
+				<li>Sesuaikan data pelanggan anda dengan template yang didownload pada langkap pertama</li>
+				<li>Upload data pelanggan yang sudah Anda sesuaikan</li>
+				<li>Untuk data dengan tipe tanggal, gunakan format yyyy/MM/dd</li>
+			</ol>
+		</p>
+	</small>
+</div>
+<div class="col-md-9">
+    <div class="col-md-6">
+        <input type="file" file-reader="displayed" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <button class="btn btn-primary" ng-if="displayed.length > 0" ng-click="upload()">
+            <i class="glyphicon glyphicon-upload"></i> Upload Data Pelanggan <small>({{displayed.length}})</small>
+        </button>
+    </div>
+    <br/>
+    <table st-table="displayed" class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th ng-repeat="(key, value) in displayed[0]">{{key}}</th>
+            </tr>
+            <tr>
+                <td ng-repeat="(key, value) in displayed[0]">
+                    <input st-search="'{{key}}'" placeholder="search for {{key}}" class="input-sm form-control" type="search" />
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="c in displayed">
+                <td ng-repeat="(key, value) in c">{{value}}</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4" class="text-center">
+                    <div st-pagination="" st-items-by-page="4" st-displayed-pages="7"></div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

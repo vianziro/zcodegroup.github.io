@@ -1,0 +1,275 @@
+<div id='cssmenu'>
+	<ul>
+	   <li class='active' ng-class="floor==1? 'active' : ''"><a ng-model="floor" ng-value="1" ng-click="floorss()"><span>Lantai 1</span></a></li>
+	   <li class='last' ng-class="floor==2? 'active' : ''"><a ng-model="floor" ng-value="2" ng-click="floors()"><span>Lantai 2</span></a></li>
+	</ul>
+</div>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Room 1</button>
+<center>
+    <!-- <div class="btn-group">
+        <label class="btn btn-primary" ng-class="floor==1? 'active' : ''">
+            <input type="radio" ng-model="floor" ng-value="1"> Lantai 1
+        </label>
+        <label class="btn btn-primary" ng-class="floor==2? 'active' : ''">
+            <input type="radio" ng-model="floor" ng-value="2"> Lantai 2
+        </label>
+    </div> -->
+    
+    <div ng-if="floor == 1">
+    	<!-- ROOM -->
+    	<div style="margin-top:20px" class="row">
+    	    <div class="btn-group">
+    	        <button type="button" class="btn btn-success">Room 1</button>
+    	        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    	            <span class="caret"></span>
+    	            <span class="sr-only">Toggle Dropdown</span>
+    	        </button>
+    	        <ul class="dropdown-menu">
+    	            <li><a href="#">Reservation</a></li>
+    	            <li><a href="#">Check-In</a></li>
+    	            <li><a ui-sref="foods">F & B Order</a></li>
+    	            <li><a href="#">LC</a></li>
+    	            <li><a href="#">Checkout</a></li>
+    	            <li><a href="#">Others</a></li>
+    	        </ul>
+    	    </div>
+    	    <div class="btn-group">
+    	        <button type="button" class="btn btn-danger" disabled>Room 2</button>
+    	        <button type="button" class="btn btn-danger dropdown-toggle" disabled data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    	            <span class="caret"></span>
+    	            <span class="sr-only">Toggle Dropdown</span>
+    	        </button>
+    	        <ul class="dropdown-menu">
+    	            <li><a href="#">Action</a></li>
+    	            <li><a href="#">Another action</a></li>
+    	            <li><a href="#">Something else here</a></li>
+    	            <li role="separator" class="divider"></li>
+    	            <li><a href="#">Separated link</a></li>
+    	        </ul>
+    	    </div>
+    	    <div class="btn-group">
+    	        <button type="button" class="btn btn-success">Room 3</button>
+    	        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    	            <span class="caret"></span>
+    	            <span class="sr-only">Toggle Dropdown</span>
+    	        </button>
+    	        <ul class="dropdown-menu">
+    	            <li><a href="#">Action</a></li>
+    	            <li><a href="#">Another action</a></li>
+    	            <li><a href="#">Something else here</a></li>
+    	            <li role="separator" class="divider"></li>
+    	            <li><a href="#">Separated link</a></li>
+    	        </ul>
+    	    </div>
+    	</div>
+    	<!-- TABLE -->
+    	<div style="margin-top:20px" class="row">
+    	    <div class="btn-group">
+    	        <button type="button" class="btn btn-info">Table 1</button>
+    	        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    	            <span class="caret"></span>
+    	            <span class="sr-only">Toggle Dropdown</span>
+    	        </button>
+    	        <ul class="dropdown-menu">
+    	            <li><a href="#">Reservation</a></li>
+    	            <li><a href="#">Check-In</a></li>
+    	            <li><a href="#">F & B Order</a></li>
+    	            <li><a href="#">LC</a></li>
+    	            <li><a href="#">Checkout</a></li>
+    	            <li><a href="#">Others</a></li>
+    	        </ul>
+    	    </div>
+    	    <div class="btn-group">
+    	        <button type="button" class="btn btn-danger" disabled>Table 2</button>
+    	        <button type="button" class="btn btn-danger dropdown-toggle" disabled data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    	            <span class="caret"></span>
+    	            <span class="sr-only">Toggle Dropdown</span>
+    	        </button>
+    	        <ul class="dropdown-menu">
+    	            <li><a href="#">Action</a></li>
+    	            <li><a href="#">Another action</a></li>
+    	            <li><a href="#">Something else here</a></li>
+    	            <li role="separator" class="divider"></li>
+    	            <li><a href="#">Separated link</a></li>
+    	        </ul>
+    	    </div>
+    	    <div class="btn-group">
+    	        <button type="button" class="btn btn-info">Table 3</button>
+    	        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    	            <span class="caret"></span>
+    	            <span class="sr-only">Toggle Dropdown</span>
+    	        </button>
+    	        <ul class="dropdown-menu">
+    	            <li><a href="#">Action</a></li>
+    	            <li><a href="#">Another action</a></li>
+    	            <li><a href="#">Something else here</a></li>
+    	            <li role="separator" class="divider"></li>
+    	            <li><a href="#">Separated link</a></li>
+    	        </ul>
+    	    </div>
+    	    <div class="btn-group">
+    	        <button type="button" class="btn btn-info">Table 4</button>
+    	        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    	            <span class="caret"></span>
+    	            <span class="sr-only">Toggle Dropdown</span>
+    	        </button>
+    	        <ul class="dropdown-menu">
+    	            <li><a href="#">Action</a></li>
+    	            <li><a href="#">Another action</a></li>
+    	            <li><a href="#">Something else here</a></li>
+    	            <li role="separator" class="divider"></li>
+    	            <li><a href="#">Separated link</a></li>
+    	        </ul>
+    	    </div>
+    	    <div class="btn-group">
+    	        <button type="button" class="btn btn-info">Table 5</button>
+    	        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    	            <span class="caret"></span>
+    	            <span class="sr-only">Toggle Dropdown</span>
+    	        </button>
+    	        <ul class="dropdown-menu">
+    	            <li><a href="#">Action</a></li>
+    	            <li><a href="#">Another action</a></li>
+    	            <li><a href="#">Something else here</a></li>
+    	            <li role="separator" class="divider"></li>
+    	            <li><a href="#">Separated link</a></li>
+    	        </ul>
+    	    </div>
+    	</div>
+    </div>
+
+    <div ng-if="floor == 2">
+    	<!-- TABLE -->
+    	<div style="margin-top:20px" class="row">
+    	    <div class="btn-group">
+    	        <button type="button" class="btn btn-info">Table 1</button>
+    	        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    	            <span class="caret"></span>
+    	            <span class="sr-only">Toggle Dropdown</span>
+    	        </button>
+    	        <ul class="dropdown-menu">
+    	            <li><a href="#">Reservation</a></li>
+    	            <li><a href="#">Check-In</a></li>
+    	            <li><a href="#">F & B Order</a></li>
+    	            <li><a href="#">LC</a></li>
+    	            <li><a href="#">Checkout</a></li>
+    	            <li><a href="#">Others</a></li>
+    	        </ul>
+    	    </div>
+    	    <div class="btn-group">
+    	        <button type="button" class="btn btn-danger" disabled>Table 2</button>
+    	        <button type="button" class="btn btn-danger dropdown-toggle" disabled data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    	            <span class="caret"></span>
+    	            <span class="sr-only">Toggle Dropdown</span>
+    	        </button>
+    	        <ul class="dropdown-menu">
+    	            <li><a href="#">Action</a></li>
+    	            <li><a href="#">Another action</a></li>
+    	            <li><a href="#">Something else here</a></li>
+    	            <li role="separator" class="divider"></li>
+    	            <li><a href="#">Separated link</a></li>
+    	        </ul>
+    	    </div>
+    	    <div class="btn-group">
+    	        <button type="button" class="btn btn-info">Table 3</button>
+    	        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    	            <span class="caret"></span>
+    	            <span class="sr-only">Toggle Dropdown</span>
+    	        </button>
+    	        <ul class="dropdown-menu">
+    	            <li><a href="#">Action</a></li>
+    	            <li><a href="#">Another action</a></li>
+    	            <li><a href="#">Something else here</a></li>
+    	            <li role="separator" class="divider"></li>
+    	            <li><a href="#">Separated link</a></li>
+    	        </ul>
+    	    </div>
+    	    <div class="btn-group">
+    	        <button type="button" class="btn btn-info">Table 4</button>
+    	        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    	            <span class="caret"></span>
+    	            <span class="sr-only">Toggle Dropdown</span>
+    	        </button>
+    	        <ul class="dropdown-menu">
+    	            <li><a href="#">Action</a></li>
+    	            <li><a href="#">Another action</a></li>
+    	            <li><a href="#">Something else here</a></li>
+    	            <li role="separator" class="divider"></li>
+    	            <li><a href="#">Separated link</a></li>
+    	        </ul>
+    	    </div>
+    	    <div class="btn-group">
+    	        <button type="button" class="btn btn-info">Table 5</button>
+    	        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    	            <span class="caret"></span>
+    	            <span class="sr-only">Toggle Dropdown</span>
+    	        </button>
+    	        <ul class="dropdown-menu">
+    	            <li><a href="#">Action</a></li>
+    	            <li><a href="#">Another action</a></li>
+    	            <li><a href="#">Something else here</a></li>
+    	            <li role="separator" class="divider"></li>
+    	            <li><a href="#">Separated link</a></li>
+    	        </ul>
+    	    </div>
+    	</div>
+    </div>
+
+    <div class="row" style="margin-top:50px">
+        <i>legend</i>
+        <table class="legend">
+            <tr>
+                <td>
+                    <button class="btn btn-success">item</button>
+                </td>
+                <td>
+                    Room
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn btn-info">item</button>
+                </td>
+                <td>
+                    Table
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn btn-danger" disabled>item</button>
+                </td>
+                <td>
+                    Reserved
+                </td>
+            </tr>
+        </table>
+    </div>
+</center>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Room 1</h4>
+      </div>
+      <div class="modal-body">
+        <ul>
+            <li><a href="#">Reservation</a></li>
+            <li><a href="#">Check-In</a></li>
+            <li><a ng-click="go()">F & B Order</a></li>
+            <li><a href="#">LC</a></li>
+            <li><a href="#">Checkout</a></li>
+            <li><a href="#">Others</a></li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<center>
+	<h3>Bantuan</h3>
+</center>
+<hr/>
+<div class="row">
+	<div class="col-md-4">
+		<ul>
+			<li ng-repeat="h in helps" ng-click="change(h.id)"><a href="">{{h.title}}</a></li>
+		</ul>
+	</div>
+	<div class="col-md-8">
+		<iframe ng-repeat="h in helps" width="560" height="315" ng-src="{{ h.url  | youtubeEmbedUrl }}" ng-if="h.id === activeId" frameborder="0" allowfullscreen></iframe>
+	</div>
+</div>

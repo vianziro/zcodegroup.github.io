@@ -1,0 +1,42 @@
+<br>
+<div class="col-md-4 col-md-offset-4">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <center>
+                <h4 class="panel-title"><strong>Profile Bank {{user.name}}</strong></h4></center>
+        </div>
+        <div class="panel-body">
+            <input type="text" class="form-control" ng-model="bank.profile" placeholder="Profile">
+            <br>
+            <input type="text" class="form-control" ng-model="bank.name" placeholder="Bank Name">
+            <br>
+            <input type="text" class="form-control" ng-model="bank.account" placeholder="Bank Account">
+            <br>
+            <div class="row">
+            	<button class="btn btn-primary" ng-click="add()">Tambahkan</button>
+            	<button class="btn btn-danger" ng-click="delete()">Delete</button>
+            	<button class="btn btn-warning" ng-click="bank = {}">Cancel</button>
+            </div>
+            <br/>
+            <table class="table">
+                <tr>
+                    <th>Profile Name</th>
+                    <th>Bank Name</th>
+                    <th>Bank Account</th>
+                </tr>
+                <tr ng-repeat="b in banks" ng-click="select(b, $index)">
+                    <td>{{b.profile}}</td>
+                    <td>{{b.name}}</td>
+                    <td>{{b.account}}</td>
+                </tr>
+                <tr ng-if="banks.length === 0 || !banks">
+                	<td colspan="3"><small> <center>bank not available</center></small></td>
+                </tr>
+            </table>
+            <br/>
+            <div>
+                <button class="btn btn-primary btn-block" ng-click="save()">Simpan</button>
+            </div>
+        </div>
+    </div>
+</div>

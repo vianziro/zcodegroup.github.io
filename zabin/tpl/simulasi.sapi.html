@@ -1,0 +1,114 @@
+<h3>Simulasi Investasi Sapi</h3>
+<div class="row">
+    <div class="col-md-5 col-md-offset-1">
+        <table class="table">
+            <tr class="success">
+                <td><strong>Investasi</strong></td>
+                <td class="text-right">
+                    <select class="form-control" ng-options="p as (p|number) for p in sapi.packages" ng-model="sapi.package">
+                    </select>
+                </td>
+            </tr>
+            <tr class="success">
+                <td colspan="2"><strong>Pendapatan</strong></td>
+            </tr>
+            <tr>
+                <td>Jumlah sapi</td>
+                <td class="text-right">{{getQty()}}</td>
+            </tr>
+            <tr>
+                <td>Harga jual induk sapi</td>
+                <td class="text-right">{{sapi.sellPrice | number}}</td>
+            </tr>
+            <tr>
+                <td><strong>Total Pendapatan</strong></td>
+                <td class="text-right"><strong>{{getPendapatan() | number}}</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Total Biaya</strong></td>
+                <td class="text-right"><strong>{{biayaTernak() + biayaLain() | number}}</strong></td>
+            </tr>
+            <tr>
+                <td><strong>Laba</strong></td>
+                <td class="text-right"><strong>{{laba() | number}}</strong></td>
+            </tr>
+            <tr class="danger">
+                <td><strong>Bagi hasil untuk Anda</strong></td>
+                <td class="text-right"><strong>{{(laba() / 2) | number:0}}</strong></td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-5">
+        <table class="table">
+            <tr class="success">
+                <td colspan="2"><strong>Biaya ternak per ekor</strong></td>
+            </tr>
+            <tr>
+                <td>Masa Pemeliharaan</td>
+                <td class="text-right">{{sapi.pemeliharaan|number}}</td>
+            </tr>
+            <tr>
+                <td>Sapi</td>
+                <td class="text-right">{{sapi.indukan|number}}</td>
+            </tr>
+            <tr>
+                <td>Pakan <small>({{sapi.pakan | number}} x {{sapi.pemeliharaan}})</small></td>
+                <td class="text-right">{{sapi.pakan * sapi.pemeliharaan|number}}</td>
+            </tr>
+            <tr>
+                <td>Kandang<small>({{sapi.kandang | number}} x {{sapi.pemeliharaan}})</small></td>
+                <td class="text-right">{{sapi.kandang * sapi.pemeliharaan|number}}</td>
+            </tr>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td class="text-right"><strong>{{totalVar() | number}}</strong></td>
+            </tr>
+            <tr class="success">
+                <td colspan="2"><strong>Total Biaya</strong></td>
+            </tr>
+            <tr>
+                <td>Jumlah sapi yang diternak</td>
+                <td class="text-right">{{getQty()}}</td>
+            </tr>
+            <tr>
+                <td>Total biaya ternak</td>
+                <td class="text-right">{{biayaTernak() | number}}</td>
+            </tr>
+            <tr>
+                <td>Biaya tak terduga</td>
+                <td class="text-right">{{biayaLain() | number}}</td>
+            </tr>
+            <tr>
+                <td><strong>Total</strong></td>
+                <td class="text-right"><strong>{{biayaTernak() + biayaLain() | number}}</strong></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<small>
+<p>Keterangan:</p>
+<ul>
+	<li>
+		Hitungan pada simulasi ini bisa jadi tidak sama dengan hasil akhir dalam kenyataan. Simulasi ini dibuat untuk gambaran kasar saja.
+	</li>
+	<li>
+		Bagi hasil tersebut Anda peroleh dalam satu siklus pemeliharaan sapi yaitu {{sapi.pemeliharaan}} bulan.
+	</li>
+</ul>
+</small>
+<script>
+(function(i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function() {
+        (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+ga('create', 'UA-73627627-1', 'auto');
+ga('send', 'pageview');
+</script>
